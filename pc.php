@@ -1,6 +1,6 @@
 <?php
 //读取文本
-$str = explode("\n", file_get_contents('pc.txt'));
+$str = explode("\n", file_get_contents('https://cdn.jsdelivr.net/gh/zknb-666/-/pc.txt'));
 $k = rand(0,count($str));
 $sina_img = str_re($str[$k]);
 
