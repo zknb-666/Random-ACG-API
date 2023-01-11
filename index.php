@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="well">
 				<p>壁纸来源<a href="http://wallhaven.cc" target="_blank">wallhaven.cc</a></p>
-        <p>实时更新收藏榜</p>
+        		<p>实时更新热榜</p>
 				<p>自判断二次元API基本调用格式：</p>
 				<pre><a href="<?php $_SERVER['HTTP_HOST'] ?>/api.php" target="_blank"><?php echo 'http://'.$_SERVER['HTTP_HOST'] ?>/api.php</a></pre>
 				<p>PC随机二次元API</p>
@@ -27,7 +27,7 @@
 				<pre>get/post</pre>
 				<p>返回格式</p>
 				<pre>json/images</pre>
-				<p>zknb</p>
+				<p>个人博客</p>
 				<pre><a href="https://blog.zknb-666.ml" target="_blank">https://blog.zknb-666.ml</a></pre>
 			</div>
 		</div>
