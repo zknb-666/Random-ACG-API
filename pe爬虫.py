@@ -42,10 +42,11 @@ def download_img(img_url_list):
         code=requests.get(url=img_url,headers=header).status_code 
         if code==404:						    #若网页返回值为404，则为png结尾
             img_url='https://w.wallhaven.cc/full/'+a+'/wallhaven-'+x+'.png'
+            code=requests.get(url=img_url,headers=header).status_code
         elif code==403:
             continue
         randimgs.write(str(img_url)+'\n')
-        print("链接:\n"+str(img_url)+"\n链接获取完成\n")
+        print("链接:\n"+str(img_url)+"\n获取完成\n")
     randimgs.close()
 
 
