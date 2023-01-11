@@ -19,8 +19,8 @@ def get_img_url(base_url):
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74'
     } 									 #模拟浏览器头部，伪装成用户
     img_url_list=[]		 				 #创建一个空列表
-    print("开始为PE端爬取壁纸\n默认爬360张\n")
-    page_num=15 #input("请输入下载页数:(一页24张)") 
+    print("开始为PE端爬取壁纸")
+    page_num=45 #input("请输入下载页数:(一页24张)") 
     for num in range(1,int(page_num)+1): #循环遍历每页
         new_url=base_url+str(num)  		 #将模板进行拼接得到每页壁纸完整的url(实质:字符串的拼接)
         page_text=requests.get(url=new_url,headers=header).text #获取url源代码
