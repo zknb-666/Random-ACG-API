@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>随机二次元图片API</title>
 		<meta name="keywords" content="图库,二次元图片,二次元API,动漫图片API,图片API">
-		<meta name="description" content="随机二次元图片API,随机动漫壁纸,每天刷一刷，每次不一样。">
+		<meta name="description" content="随机二次元图片API,随机动漫壁纸，每次不一样。">
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
