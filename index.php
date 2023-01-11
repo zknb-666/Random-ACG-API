@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="well">
 				<p>壁纸来源<a href="http://wallhaven.cc" target="_blank">wallhaven.cc</a></p>
-        <p>实时更新2160张随机二次元壁纸(PC和PE各1080张)</p>
+        <p>实时更新720张随机二次元壁纸(PC和PE各360张)</p>
 				<p>自判断二次元API基本调用格式：</p>
 				<pre><a href="<?php $_SERVER['HTTP_HOST'] ?>/api.php" target="_blank"><?php echo 'http://'.$_SERVER['HTTP_HOST'] ?>/api.php</a></pre>
 				<p>PC随机二次元API</p>
