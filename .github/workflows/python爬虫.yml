@@ -1,0 +1,46 @@
+name: Python 爬虫
+
+on:
+  schedule:
+  - cron: '0 16 * * *'
+  - cron: '0 22 * * *'
+  - cron: '0 4 * * *'
+  - cron: '0 10 * * *'
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  
+jobs:
+  run-python-script:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install requests
+    - name: Run 爬虫
+      run: |
+        python pc爬虫.py
+        python pe爬虫.py
+    - name: commit
+      run: |
+        git config --global user.email 2865467965@qq.com
+        git config --global user.name zknb-666
+        git pull
+        git add .
+        git commit -m "更新列表"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
