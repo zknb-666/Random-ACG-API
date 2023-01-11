@@ -37,7 +37,12 @@ echo $img;
 break;
 //IMG
 default:
-header("Location:".$result['acgurl']);
+$array = get_headers($result['acgurl'],1);
+if(preg_match('/200/',$array[0])){
+  header("Location:".$result['acgurl']);
+}else{
+  header("Refresh:0");
+}
 break;
 }
 function str_re($str){
