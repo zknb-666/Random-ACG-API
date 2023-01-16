@@ -40,8 +40,10 @@ default:
 $array = get_headers($result['acgurl'],1);
 if(preg_match('/200/',$array[0])){
   header("Location:".$result['acgurl']);
+  exit();
 }else{
   header("Refresh:0");
+  exit();
 }
 break;
 }
