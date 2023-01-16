@@ -13,7 +13,7 @@ $url = ''.$sina_img.'';
 //解析结果
 $result=array("code"=>"200","acgurl"=>"$url");
 //Type Choose参数代码
-$type=$_GET['return'];
+$type=isset($_GET['return']);
 switch ($type)
 {   
    
@@ -40,10 +40,8 @@ default:
 $array = get_headers($result['acgurl'],1);
 if(preg_match('/200/',$array[0])){
   header("Location:".$result['acgurl']);
-  exit();
 }else{
   header("Refresh:0");
-  exit();
 }
 break;
 }
