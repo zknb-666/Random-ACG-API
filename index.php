@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="well">
 				<p>壁纸来源<a href="http://wallhaven.cc" target="_blank">wallhaven.cc</a></p>
-        		<p>实时更新热榜</p>
+        		<p>每日排行榜更新</p>
 				<p>自判断二次元API基本调用格式：</p>
 				<pre><a href="<?php $_SERVER['HTTP_HOST'] ?>/api.php" target="_blank"><?php echo 'http://'.$_SERVER['HTTP_HOST'] ?>/api.php</a></pre>
 				<p>PC随机二次元API</p>
