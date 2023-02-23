@@ -10,10 +10,8 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
-		<div>
-			<p algin=“center” class="title title2">随机二次元图片API</p>
-		</div>
 		<div class="container">
+			<p algin=“center” class="title">随机二次元图片API</p>
 			<div class="well">
 				<p>壁纸来源<a href="http://wallhaven.cc" target="_blank">wallhaven.cc</a></p>
         		<p>每日排行榜更新</p>
@@ -32,8 +30,7 @@
 			</div>
 		</div>
 		<div class="bottom">
-
-                    <p>Copyright © 2020 zknb</p>
+                <p>Copyright © 2023 zknb</p>
 		</div>
 	</body>
 </html>
