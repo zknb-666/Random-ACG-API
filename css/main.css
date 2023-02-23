@@ -1,8 +1,9 @@
 body{
-	background: url(../api.php);
+	background: url(/zknb-666/Random-ACG-API/edit/master/api.php);
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-size: cover;
+	background-position: center;
 }
 .bottom{
 	position: fixed;
