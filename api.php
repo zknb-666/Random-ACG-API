@@ -1,8 +1,8 @@
 <?php
 //如何用php判断用户通过电脑端还是手机端访问网站
 function isMobile(){
-$useragent=isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ”;
-$useragent_commentsblock=preg_match('|\(.*?\)|',$useragent,$matches)>0?$matches[0]:”;
+$useragent=isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+$useragent_commentsblock=preg_match('|\(.*?\)|',$useragent,$matches)>0?$matches[0]:'';
 function CheckSubstrs($substrs,$text){
 foreach($substrs as $substr)
 if(false!==strpos($text,$substr)){
