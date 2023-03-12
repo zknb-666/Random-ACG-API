@@ -38,6 +38,9 @@ break;
 //IMG
 default:
 $array = get_headers($result['acgurl'],1);
+if ( empty( $array ) ) {
+	header("Refresh:0");
+}
 if(preg_match('/200/',$array[0])){
   header("Location:".$result['acgurl']);
 }else{
