@@ -1,4 +1,4 @@
-name: Python 爬虫
+name: sync list
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-       ref: 'master'
+       ref: master
     - name: commit
       run: |
         git config --global user.email 2865467965@qq.com
