@@ -49,3 +49,24 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: wallhavenrequests
+
+    - uses: actions/checkout@v3
+      with: 
+        ref: master
+    - name: commit
+      run: |
+        git config --global user.email 2865467965@qq.com
+        git config --global user.name zknb-666
+        rm -rf pe.txt
+        rm -rf pc.txt
+        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/wallhavenrequests/pc.txt
+        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/wallhavenrequests/pe.txt
+        git add .
+        git commit -m "更新列表"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master
+
