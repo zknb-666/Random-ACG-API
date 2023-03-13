@@ -11,7 +11,7 @@ def get_url(base_url):
      #   base_url=base_url+keyword+'?page='
     #else: 					#获取基于关键词的url模板
     #base_url=base_url+'search?q='+keyword+'&ratios=landscape'+'&sorting=random'+'&page='
-    base_url=base_url+'search?categories=010&purity=100&ratios=landscape&topRange=1d&sorting=toplist&order=desc'
+    base_url=base_url+'search?categories=010&purity=100&ratios=landscape&topRange=1M&sorting=toplist&order=desc'
     return base_url         #返回模板
 
 
