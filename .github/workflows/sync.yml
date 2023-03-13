@@ -24,8 +24,8 @@ jobs:
       run: |
         git config --global user.email 2865467965@qq.com
         git config --global user.name zknb-666
-        git checkout main -- pe.txt
-        git checkout main -- pc.txt
+        git checkout origin/main -- pe.txt
+        git checkout origin/main -- pc.txt
         git add .
         git commit -m "更新列表"
         git push
