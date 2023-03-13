@@ -24,9 +24,10 @@ jobs:
       run: |
         git config --global user.email 2865467965@qq.com
         git config --global user.name zknb-666
-        git branch -a
-        git checkout origin/main -- pe.txt
-        git checkout origin/main -- pc.txt
+        rm -rf pc.txt
+        rm -rf pe.txt
+        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pc.txt
+        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pe.txt
         git add .
         git commit -m "更新列表"
         git push
