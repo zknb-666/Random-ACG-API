@@ -28,7 +28,4 @@ jobs:
         git checkout main -- pc.txt
         git add .
         git commit -m "更新列表"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        git push
