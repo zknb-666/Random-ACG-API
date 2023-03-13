@@ -4,11 +4,6 @@ on:
   push:
     branches: 
       - 'main'
-      - 'master'
-  pull_request:
-    branches:
-      - 'main'
-      - 'master'
   
 jobs:
   commit:
@@ -26,8 +21,8 @@ jobs:
         git config --global user.name zknb-666
         rm -rf pc.txt
         rm -rf pe.txt
-        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pc.txt
-        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pe.txt
+        wget https://raw.github.com/zknb-666/Random-ACG-API/main/pc.txt
+        wget https://raw.github.com/zknb-666/Random-ACG-API/main/pe.txt
         git add .
         git commit -m "更新列表"
         git push
