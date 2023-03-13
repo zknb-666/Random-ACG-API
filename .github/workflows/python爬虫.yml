@@ -8,9 +8,13 @@ on:
   - cron: '0 18 * * *'
 
   push:
-    branches: [ "main" ]
+    branches: 
+      - 'main'
+      - 'master'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
+      - 'master'
   
 jobs:
   run-python-script:
@@ -38,9 +42,8 @@ jobs:
       run: |
         git config --global user.email 2865467965@qq.com
         git config --global user.name zknb-666
-        git pull
         git add .
-        git commit -m "更新列表"
+        git commit -m "更新图库"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
