@@ -55,7 +55,7 @@ def download_img(img_url_list):
         with open(img_path,'wb') as fp:		    #('w':写入,'b':二进制格式)
             fp.write(img_data)
             print(img_name,'下载成功')     	
-        randimgs.write('https://jihulab.com/zknb-666/wallhavenrequests/-/raw/main/pc/'+str(img_name)+'\n')
+        randimgs.write('https://jihulab.com/zknb-666/Random-ACG-API/-/raw/wallhavenrequests/pc/'+str(img_name)+'\n')
         print("链接:\n"+str(img_url)+"\n获取完成\n")
     randimgs.close()
 
