@@ -1,0 +1,5 @@
+run = "sh ./main.sh"
+entrypoint = "index.php"
+
+[nix]
+channel = "stable-22_11"
