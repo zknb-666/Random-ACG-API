@@ -1,0 +1,74 @@
+body{
+    background-image: url(../api.php);
+    background-repeat: no-repeat;
+    background-size:cover;
+    -webkit-background-size: cover !important; 
+    -moz-background-size: cover !important; 
+    -o-background-size: cover; 
+    background-attachment:fixed;
+    z-index: -1;
+}
+
+body:before{
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+    -webkit-background-size: cover!important;
+    -o-background-size: cover;
+    background-size: cover!important;
+}
+
+.bottom{
+	position: fixed;
+	height: 30px;
+	width: 100%;
+	bottom: 0px;
+	text-align: center;
+	font-size: 20px;
+	color: #2196F3;
+	text-shadow: #000 1px 1px 1px;
+	margin-bottom: 10px;
+}
+pre{
+	color: #2196F3;
+	font-size: 18px;
+	background: rgba(255, 255, 255, 0.55);
+	line-height: 30px;
+}
+.json_note{
+	color: #004CFF;
+	font-weight:bold;
+}
+.json_key{ 
+	color: #92278f;
+	font-weight:bold;
+}
+.json_null{
+	color: #f1592a;
+	font-weight:bold;
+}
+.json_string{ 
+	color: #3ab54a;
+	font-weight:bold;
+}
+.json_number{ 
+	color: #25aae2;
+	font-weight:bold;
+}
+.title{
+	text-shadow: rgb(0, 0, 0) 1px 1px 1px;font-size: 30px;color: #00CEFF;
+}
+.container{
+	position: relative;top: 90px;margin: 0 auto;
+}
+.well{
+	background: rgba(255, 255, 255, 0.58);text-shadow: #000 1px 1px 1px;color: #00F1FF;font-size: 20px;
+}
+.well a{
+	color: #00F1FF;font-size: 20px;
+}
