@@ -22,10 +22,9 @@ jobs:
         python-version: ["3.11"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses:  francisbilham11/action-cached-lfs-checkout@v3
       with:
         ref: wallhavenrequests
-        lfs: true
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
