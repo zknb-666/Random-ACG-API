@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: nschloe/action-cached-lfs-checkout@v1.1.2
       with:
-        ref: wallhavenrequests
+        ref: main
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
@@ -34,25 +34,12 @@ jobs:
         pip install requests
     - name: Run 爬虫
       run: |
-        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pc爬虫.py
-        wget https://raw.githubusercontent.com/zknb-666/Random-ACG-API/main/pe爬虫.py
         python pc爬虫.py
         python pe爬虫.py
-        rm -rf pc爬虫.py
-        rm -rf pe爬虫.py
     - name: commit
       run: |
-        rm -rf *.py
-        rm -rf .github
-        rm -rf api
-        rm -rf css
-        rm -rf .replit
-        rm -rf *.php
-        rm -rf *.sh
-        rm -rf *.nix
-        rm -rf *.json
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add pc pe pc.txt pe.txt .lfs-assets-id
+        git add .
         git commit -a -m "更新图库"
         git push -f
