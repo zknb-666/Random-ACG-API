@@ -22,7 +22,7 @@ jobs:
         python-version: ["3.11"]
 
     steps:
-    - uses:  francisbilham11/action-cached-lfs-checkout@v3
+    - uses: nschloe/action-cached-lfs-checkout@v1.1.2
       with:
         ref: wallhavenrequests
     - name: Set up Python ${{ matrix.python-version }}
@@ -42,14 +42,17 @@ jobs:
         rm -rf pe爬虫.py
     - name: commit
       run: |
-        git config --global user.email 2865467965@qq.com
-        git config --global user.name zknb-666
-        git add .
-        git commit -m "更新图库"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        force: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: wallhavenrequests
-
+        rm -rf *.py
+        rm -rf .github
+        rm -rf api
+        rm -rf css
+        rm -rf .replit
+        rm -rf *.php
+        rm -rf *.sh
+        rm -rf *.nix
+        rm -rf *.json
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add pc pe pc.txt pe.txt .lfs-assets-id
+        git commit -a -m "更新图库"
+        git push -f
