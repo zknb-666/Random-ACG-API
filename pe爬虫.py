@@ -2,6 +2,8 @@ import requests      #爬虫
 import re            #正则表达式
 import urllib3
 
+from crawler_common import upload_wallhaven_images_to_txt
+
 header={'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.74'}#模拟浏览器头部，伪装成用户
 urllib3.disable_warnings() #关闭证书警告
 
@@ -29,18 +31,7 @@ def get_img_url(base_url):
 
 
 def get_img_url_to_txt(img_url_list):
-    filename="pe.txt"
-    randimgs=open(filename,"w")	
-    for i in range(len(img_url_list)): 			#循环遍历列表，对每张壁纸缩略图的url进行字符串的增删获得壁纸原图下载的url  注：jpg或png结尾
-        x=img_url_list[i].split('/')[-1]  		#获取最后一个斜杠后面的字符串
-        a=x[0]+x[1] 							#获取字符串的前两位
-        img_url='https://w.wallhaven.cc/full/'+a+'/wallhaven-'+x  #拼接字符串,先默认jpg结尾
-        format='.jpg'
-        if not requests.get(url=img_url+''+format,headers=header,timeout=60,verify=False).ok:#若网页返回错误，则为png结尾
-            format='.png'
-        randimgs.write(img_url+''+format+"\n")
-        print("链接:\n"+str(img_url+''+format)+"\n获取完成\n")
-    randimgs.close()
+    upload_wallhaven_images_to_txt(img_url_list, 'pe.txt', 'PE端')
 
 
 def main(url):
