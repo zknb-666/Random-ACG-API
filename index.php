@@ -28,7 +28,7 @@
 				<p>返回格式</p>
 				<pre>json/images</pre>
 				<p>个人博客</p>
-				<pre><a href="https://blog.zknb-666.ml" target="_blank">https://blog.zknb-666.ml</a></pre>
+				<pre><a href="https://blog.zknb.cf" target="_blank">https://blog.zknb.cf</a></pre>
 			</div>
 		</div>
 		<div class="bottom">
