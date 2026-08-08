@@ -31,34 +31,75 @@ def optimize_image_for_upload(image_content, content_type, filename):
     try:
         image = Image.open(io.BytesIO(image_content))
         image_format = (image.format or '').upper()
-        optimized_buffer = io.BytesIO()
+
+        def encode_jpeg_under_limit(source_image):
+            working_image = source_image.convert('RGB')
+            width, height = working_image.size
+            scale_steps = (1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3)
+            quality_steps = (95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10)
+
+            for scale in scale_steps:
+                if scale < 1.0:
+                    resized_width = max(1, int(width * scale))
+                    resized_height = max(1, int(height * scale))
+                    candidate_image = working_image.resize((resized_width, resized_height), Image.LANCZOS)
+                else:
+                    candidate_image = working_image
+
+                for quality in quality_steps:
+                    candidate_buffer = io.BytesIO()
+                    candidate_image.save(
+                        candidate_buffer,
+                        format='JPEG',
+                        optimize=True,
+                        progressive=True,
+                        quality=quality,
+                        subsampling=2,
+                    )
+                    candidate_content = candidate_buffer.getvalue()
+                    if len(candidate_content) <= MAX_UPLOAD_SIZE:
+                        return candidate_content
+
+            return None
 
         if image_format == 'PNG':
+            optimized_buffer = io.BytesIO()
             image.save(optimized_buffer, format='PNG', optimize=True, compress_level=9)
-            optimized_content_type = 'image/png'
-            optimized_filename = filename.rsplit('.', 1)[0] + '.png'
-        elif image_format == 'GIF':
-            image.save(optimized_buffer, format='GIF', optimize=True)
-            optimized_content_type = 'image/gif'
-            optimized_filename = filename.rsplit('.', 1)[0] + '.gif'
-        elif image_format in ('JPEG', 'JPG'):
-            image = image.convert('RGB')
-            image.save(
-                optimized_buffer,
-                format='JPEG',
-                optimize=True,
-                progressive=True,
-                quality='keep',
-                subsampling='keep',
-            )
-            optimized_content_type = 'image/jpeg'
-            optimized_filename = filename.rsplit('.', 1)[0] + '.jpg'
-        else:
-            return filename, image_content, content_type
+            optimized_content = optimized_buffer.getvalue()
+            if optimized_content and len(optimized_content) <= MAX_UPLOAD_SIZE:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.png'
+                return optimized_filename, optimized_content, 'image/png'
 
-        optimized_content = optimized_buffer.getvalue()
-        if optimized_content and len(optimized_content) <= len(image_content):
-            return optimized_filename, optimized_content, optimized_content_type
+            jpeg_content = encode_jpeg_under_limit(image)
+            if jpeg_content:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.jpg'
+                return optimized_filename, jpeg_content, 'image/jpeg'
+
+        elif image_format == 'GIF':
+            optimized_buffer = io.BytesIO()
+            image.save(optimized_buffer, format='GIF', optimize=True)
+            optimized_content = optimized_buffer.getvalue()
+            if optimized_content and len(optimized_content) <= MAX_UPLOAD_SIZE:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.gif'
+                return optimized_filename, optimized_content, 'image/gif'
+
+            jpeg_content = encode_jpeg_under_limit(image)
+            if jpeg_content:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.jpg'
+                return optimized_filename, jpeg_content, 'image/jpeg'
+
+        elif image_format in ('JPEG', 'JPG'):
+            lossless_buffer = io.BytesIO()
+            image.convert('RGB').save(lossless_buffer, format='JPEG', optimize=True, progressive=True)
+            optimized_content = lossless_buffer.getvalue()
+            if optimized_content and len(optimized_content) <= MAX_UPLOAD_SIZE:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.jpg'
+                return optimized_filename, optimized_content, 'image/jpeg'
+
+            jpeg_content = encode_jpeg_under_limit(image)
+            if jpeg_content:
+                optimized_filename = filename.rsplit('.', 1)[0] + '.jpg'
+                return optimized_filename, jpeg_content, 'image/jpeg'
 
         return filename, image_content, content_type
     except Exception:
