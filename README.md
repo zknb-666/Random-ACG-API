@@ -9,7 +9,7 @@
 
 使用爬虫+github actions实现自动更新
 
-演示地址https://api.zknb-666.ml 
+演示地址https://api.zknb.cf
 
 php部分原作者：https://github.com/2374579255/acgAPI
 
