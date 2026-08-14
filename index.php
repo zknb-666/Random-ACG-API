@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="icon" type="image/png" href="//blog.zknb-666.ml/images/favicon.png">
-		<link href="//blog.zknb-666.ml/images/favicon.png" rel="shortcut icon" type="image/png">
+		<link href="//blog.zknb.cf/images/favicon.png" rel="shortcut icon" type="image/png">
 	</head>
 	<body>
 		<div class="container">
